@@ -1,0 +1,285 @@
+/* 
+    Document   : cssweb
+    Created on : 07.10.2014, 13:37:47
+    Author     : stat
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body {
+    width: 100%;
+    margin: 0;
+
+}
+.reg {
+    float: right;
+    border: 1px;
+    border-color: black;
+    width: 2px;
+    visibility: visible;
+    border-right-color: #000000;
+    border-left-color: #000000;
+    border-bottom-color: #000000;
+    border-top-color: #000000;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border-right-style: outset;
+    border-left-style: outset;
+    border-bottom-style: outset;
+    border-top-style: outset;
+}
+.all {
+    margin: 0 10% 0 10%;
+    width: 80%;
+    background-color: #f0f0f0;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 5px;
+    height: 800px;
+     font-family: Arial;
+}
+.all2 {
+    margin: 0 10% 0 10%; 
+    width: 80%;
+    background-color: #f0f0f0;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    padding-top: 9px;
+     font-family: Arial;
+}
+.test{
+
+    border-right-style: dashed;
+    border-left-style: dashed;
+    border-bottom-style: dashed;
+    border-top-style: dashed;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-color: black;
+    border-left-color: black;
+    border-bottom-color: black;
+    border-top-color: black;
+}
+.form1 {
+    margin: 10px;
+    padding: 10px;
+    border-bottom: #f0f0f0;
+
+} 
+.form1 input {
+    background-color: #f0f0f0;
+}
+.formViewStat {
+    margin: 10px;
+}
+.list1{
+    margin: 10px;
+}
+.vs  {
+    width: 100%;
+    background-color: #000099; 
+    border: 1px solid black;
+    color: #ffffff;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    
+  
+}
+.center{
+    width: 70%;
+    margin-left:  10%;
+    margin-right:   10%;
+    background-color: #f0f0f0;
+}
+.vertical{
+    vertical-align: top;
+   
+    min-width: 634px;
+    
+}
+.topMenu{
+    vertical-align: middle;
+    border-radius: 5px;
+    background-color: #FFF;
+    padding: 10px;
+    
+    font-size: 16px;
+}
+.oneLineMenu{
+    vertical-align: middle;margin: 10px;
+    
+}
+.oneLineMenu2{
+    vertical-align: middle;
+    margin: 10px;
+    margin-left: 150px; 
+    font-size: 12px;
+}
+.oneLineMenu3{
+    vertical-align: middle;
+    margin: 15px;
+    margin-left: 150px; 
+    font-size: 18px;
+}
+
+.messageTop1{
+    padding-left: 20px;
+    font-family: Arial;
+    font-size: 16px;
+} 
+.tab3{
+     background-color: #f0f0f0;
+}
+.view   td  {
+   
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    background-color: #f0f0f0;
+    font-size: 22px;
+    border: 1px solid black;
+
+   
+}
+.view tbody td{
+    max-width: 400px;
+}
+.view table {
+    border-left:  1px solid black;
+    border-bottom:   1px solid black;
+    border-top:   1px solid black;
+    border-collapse: collapse;
+}
+.login{
+      width: 180px;
+     
+      float: left;
+}
+.leftMenu{
+    margin: 15px;
+    vertical-align: middle;
+    border-radius: 5px;
+    background-color: #FFF;
+    padding: 10px;
+    width: 200px;
+    overflow: hidden;
+    float: left;
+    height: 380px;
+  alignment-baseline: central;
+}
+.leftMenu p{
+    font-size: 18px;
+   font-weight: 500;
+   margin-top:  5px;
+   border-bottom:4px double #f0f0f0;
+   
+}
+.loginHeader{
+ 
+  padding-bottom: 9px;
+    border-radius: 5px;
+    background-color: #FFF;
+  width: 270px;
+   right: 0;
+   float: right;
+   overflow: hidden;
+   height: 15px;
+  
+   margin-right: 20px;
+}
+.loginHeader a{
+    padding-left: 10px;
+}
+.horizonMenuTop{
+  /*// margin-top: 5px;*/
+    height: 20px;
+    border-radius: 5px;
+    background-color: #FFF;
+    margin-left: 15px;
+     margin-right:  320px;
+    padding-top: 3px;
+   /*// padding-left: 3px;*/
+     font-size: 10px;
+    /*// text-align: center;*/
+    
+}
+.loginCentre{
+    padding-top: 25%;
+    padding-left: 33%;
+   
+     float: left;  
+}
+.loginCentre a{
+    font-family: arial;
+    font-size: 18px;
+}
+.errorCentre{
+    padding-top: 20%;
+    padding-left: 33%;
+  
+    float: left;  
+}
+.errorCentre p{
+     background-color: #FFF;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: arial;
+    font-size: 18px;
+}
+.horizonMenu{
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 98%;
+    height: 50px;
+    background-color: #FFF;
+    border-radius: 5px;
+    /*//background-image: url(../img/flag.png);*/
+}
+.horizonMenu p{
+    padding-top: 15px;
+  padding-left: 10px;
+ 
+}
+.source{
+  
+    max-width: 83%;
+  
+    background-color: #FFF;
+    border-radius: 5px;
+    margin-left: 260px;
+   /*// margin-right: 5px;*/
+    margin-right: 1%;
+    margin-top: 15px;
+    height: 50%
+}
+.column1{
+   width: 30px;   
+   vertical-align: top;
+}
+.column2{
+   width: 700px; 
+   /*//height: 150px;*/
+   font-size: small;
+}
+.column3{
+    
+}
+.myspisDiv{
+ /*background-color: gainsboro;*/
+    border-radius: 20px;
+}

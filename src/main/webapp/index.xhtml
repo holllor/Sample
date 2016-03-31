@@ -4,18 +4,20 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Facelet Title</title>  
+        <h:outputStylesheet library="theme1" name="css/cssweb.css" />
     </h:head>
     <h:body>
-        Hello from Facelets
-        <h:form>
-            <p:panelGrid columns="3" style="margin: 10px;">
-            <p:calendar /> 
-            <p:outputLabel value="jkhkhkjkhjkkj"/>
-            <p:inputText value="teradfa"/>
-            </p:panelGrid>
-        </h:form>
-        
+        <div class="all">
+            Hello from Facelets
+            <h:form>
+                <p:panelGrid columns="3" style="margin: 10px;">
+                    <p:calendar /> 
+                    <p:outputLabel value="jkhkhkjkhjkkj"/>
+                    <p:inputText value="teradfa"/>
+                </p:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
 
