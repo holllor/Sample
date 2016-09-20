@@ -5,6 +5,7 @@
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
+    height: 200px;
 }
 
 #bottom {
@@ -12,13 +13,16 @@
     background-color: #c2dfef;
     padding: 5px;
     margin: 10px 0px 0px 0px;
+    height: 300px;
 }
 
-#left {
-    float: left;
+#horizontMenu {
+   /*float: left;*/
     background-color: #ece3a5;
     padding: 5px;
-    width: 150px;
+    margin: 10px;
+    height: 40px;
+    /*width: 150px;*/
 }
 
 #right {
@@ -32,12 +36,15 @@
     position: relative;
     background-color: #dddddd;
     padding: 5px;
+    margin: 10px;
+    
 }
 
 .left_content {
     background-color: #dddddd;
     padding: 5px;
-    margin-left: 170px;
+    height: 600px;
+    /*margin-left: 170px;*/
 }
 
 .right_content {
