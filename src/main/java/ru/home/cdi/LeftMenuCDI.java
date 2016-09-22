@@ -9,6 +9,6 @@ package ru.home.cdi;
  *
  * @author олег
  */
-public class НовыйClass {
+public class LeftMenuCDI {
     
 }
