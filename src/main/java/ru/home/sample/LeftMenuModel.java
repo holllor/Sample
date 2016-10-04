@@ -11,9 +11,15 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.primefaces.model.menu.DefaultMenuItem;
+import org.primefaces.model.menu.DefaultMenuModel;
+import org.primefaces.model.menu.DefaultSubMenu;
 import org.primefaces.model.menu.MenuModel;
+import ru.home.ejb.LeftMenuEJB;
+import ru.home.entity.LeftmenuEasy;
 
 /**
  *
@@ -21,18 +27,84 @@ import org.primefaces.model.menu.MenuModel;
  */
 public class LeftMenuModel {
 
-    public static void main(String[] args) {
-        LeftMenuModel l = new LeftMenuModel();
-        l.testMenu();
-    }
+//    public static void main(String[] args) {
+//        LeftMenuModel l = new LeftMenuModel();
+//        l.testMenu();
+//    }
+    public DefaultMenuModel getModelEasy(LeftMenuEJB ejb) {
+        DefaultMenuModel model = new DefaultMenuModel();//инициализация модели меню
+        
+        List<LeftmenuEasy> listKor = ejb.selectKorenElement();
+        for (LeftmenuEasy leftmenuKoren : listKor) { //All element
 
+            if (leftmenuKoren.getIsGruop()) { // проверка на группу 
+                
+                List<LeftmenuEasy> listGrup = ejb.selectGroup(leftmenuKoren.getId());//заполнение групп
+                for (LeftmenuEasy leftmenuGrup : listGrup) {// заполнение групповых листов  SubMenu
+                    DefaultSubMenu GrupSubmenu = new DefaultSubMenu(leftmenuGrup.getNameMenu());
+                    
+                    List<LeftmenuEasy> listList = ejb.selectList(leftmenuGrup.getId());
+                    for (LeftmenuEasy leftmenuEasyRow : listList) {// item
+                        DefaultMenuItem item = new DefaultMenuItem(leftmenuEasyRow.getNameMenu());
+                        item.setUrl("http://www.primefaces.org");
+                        item.setIcon("ui-icon-home");
+                        GrupSubmenu.addElement(item);
+                    }
+                    model.addElement(GrupSubmenu);
+                }
+            } else {// заполнение корневых листов
+                //   List<LeftmenuEasy> listGrup = ejb.selectList(0); //
+                DefaultMenuItem item = new DefaultMenuItem(leftmenuKoren.getNameMenu());
+                item.setUrl("http://www.primefaces.org");
+                item.setIcon("ui-icon-home");
+                model.addElement(item);
+                //     leftmenuKoren   // item koren
+                
+            }
+        }
+
+// Прописать вызов и заполнение модели данными из БД с помощью методов EJB класса
+////        //First submenu
+////        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
+////        
+////        DefaultMenuItem item = new DefaultMenuItem("External");
+////        item.setUrl("http://www.primefaces.org");
+////        item.setIcon("ui-icon-home");
+////        firstSubmenu.addElement(item);
+////        
+////        model.addElement(firstSubmenu);
+////
+////        //Second submenu
+////        DefaultSubMenu secondSubmenu = new DefaultSubMenu("Dynamic Actions");
+////        
+////        item = new DefaultMenuItem("Save");
+////        item.setIcon("ui-icon-disk");
+////        item.setCommand("#{menuView.save}");
+////        item.setUpdate("messages");
+////        secondSubmenu.addElement(item);
+////        
+////        item = new DefaultMenuItem("Delete");
+////        item.setIcon("ui-icon-close");
+////        item.setCommand("#{menuView.delete}");
+////        item.setAjax(false);
+////        secondSubmenu.addElement(item);
+////        
+////        item = new DefaultMenuItem("Redirect");
+////        item.setIcon("ui-icon-search");
+////        item.setCommand("#{menuView.redirect}");
+////        secondSubmenu.addElement(item);
+////        
+////        model.addElement(secondSubmenu);
+        return model;
+    }
+    
     private void testMenu() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
-
+            
         }
-        String sql = "select * from leftmenu";
+        String sql = "select * from \"leftmenuEasy\" where parent_id = 0";
         try {
             Connection connection = DriverManager.getConnection(
                     "jdbc:postgresql://127.0.0.1:5432/sample", "sample",
@@ -40,18 +112,18 @@ public class LeftMenuModel {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             ResultSetMetaData rsmt = rs.getMetaData();
-
+            
             while (rs.next()) {
                 int i1 = rs.getInt("id");
                 System.out.println(i1);
             }
         } catch (SQLException e) {
-
+            
             System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
             return;
-
+            
         }
-
+        
     }
 }

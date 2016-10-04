@@ -11,4 +11,5 @@
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/Sample" object-type="user" pool-name="post-gre-sql_sample_samplePool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/sample2" object-type="user" pool-name="post-gre-sql_sample_samplePool"/>
 </resources>
