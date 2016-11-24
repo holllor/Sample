@@ -27,7 +27,7 @@ public class LeftMenuEJB {
      * @return 
      */
     public List<LeftmenuEasy> selectKorenElement(){
-        String sql = "select * from leftmenueasy  where parent_id = 0";
+        String sql = "select * from leftmenueasy  where parent_id = 0 order by id desc";
         Query qer = em.createNativeQuery(sql, LeftmenuEasy.class);
         return qer.getResultList();
     }

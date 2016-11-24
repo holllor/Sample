@@ -26,6 +26,7 @@ import ru.home.sample.LeftMenuModel;
 public class LeftMenuCDI implements Serializable {
 
     private MenuModel model;
+    
 
     @EJB
     LeftMenuEJB leftEjb;
@@ -34,9 +35,11 @@ public class LeftMenuCDI implements Serializable {
     @PostConstruct
     public void init() {
         model = new LeftMenuModel().getModelEasy(leftEjb);// загружает модель данных меню
+        
     }
 
     public MenuModel getModel() {
+     model = model = new LeftMenuModel().getModelEasy(leftEjb);
         return model;
     }
 

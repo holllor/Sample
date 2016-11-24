@@ -47,7 +47,7 @@ public class LeftMenuModel {
                     for (LeftmenuEasy leftmenuEasyRow : listList) {// item
                         DefaultMenuItem item = new DefaultMenuItem(leftmenuEasyRow.getNameMenu());
                         item.setUrl("http://www.primefaces.org");
-                        item.setIcon("ui-icon-home");
+                      //  item.setIcon("ui-icon-home");
                         GrupSubmenu.addElement(item);
                     }
                     model.addElement(GrupSubmenu);
@@ -56,7 +56,7 @@ public class LeftMenuModel {
                 //   List<LeftmenuEasy> listGrup = ejb.selectList(0); //
                 DefaultMenuItem item = new DefaultMenuItem(leftmenuKoren.getNameMenu());
                 item.setUrl("http://www.primefaces.org");
-                item.setIcon("ui-icon-home");
+                //item.setIcon("ui-icon-home");
                 model.addElement(item);
                 //     leftmenuKoren   // item koren
                 
