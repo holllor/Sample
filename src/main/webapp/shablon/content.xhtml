@@ -9,8 +9,10 @@
     <h:body>
         <p:layout style="min-width:400px;min-height:500px;">
             <p:layoutUnit position="west" resizable="true" size="210" minSize="100" maxSize="300" >
-               <h3>Test Menu</h3>
-               <p:menu model="#{leftMenuCDI.model}" toggleable="true"  />
+                <h:panelGrid columns="1">  
+                    <h3>Test Menu</h3>
+                    <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 171px;" />
+                </h:panelGrid>
             </p:layoutUnit>
 
             <p:layoutUnit position="center">
