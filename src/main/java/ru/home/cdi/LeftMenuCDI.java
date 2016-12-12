@@ -8,6 +8,7 @@ package ru.home.cdi;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import org.primefaces.model.menu.DefaultMenuItem;
@@ -26,7 +27,6 @@ import ru.home.sample.LeftMenuModel;
 public class LeftMenuCDI implements Serializable {
 
     private MenuModel model;
-    
 
     @EJB
     LeftMenuEJB leftEjb;
@@ -35,11 +35,17 @@ public class LeftMenuCDI implements Serializable {
     @PostConstruct
     public void init() {
         model = new LeftMenuModel().getModelEasy(leftEjb);// загружает модель данных меню
-        
+
     }
 
     public MenuModel getModel() {
-     model = model = new LeftMenuModel().getModelEasy(leftEjb);
+//        try {
+//            model = new LeftMenuModel().getModelEasy(leftEjb);
+//        } catch (Exception e) {
+//            System.out.println("ERROR ");
+//            e.printStackTrace();
+//        }
+        model = new LeftMenuModel().getModelEasy2();
         return model;
     }
 

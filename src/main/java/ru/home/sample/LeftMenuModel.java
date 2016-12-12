@@ -31,14 +31,32 @@ public class LeftMenuModel {
 //        LeftMenuModel l = new LeftMenuModel();
 //        l.testMenu();
 //    }
+    public DefaultMenuModel getModelEasy2() {
+        DefaultMenuModel model = new DefaultMenuModel();//инициализация модели меню
+        DefaultMenuItem item = new DefaultMenuItem("one");
+        item.setId("0");
+        item.setCommand("#{tovarCDI.selectTovar}");
+        item.setUpdate("tovar1");
+        
+        DefaultMenuItem item2 = new DefaultMenuItem("two");
+        item2.setId("1");
+        item2.setCommand("#{tovarCDI.selectTovar2('12')}");
+        item2.setUpdate("tovar1");
+        
+        model.addElement(item); 
+        model.addElement(item2);
+        
+        return model;
+    }
+
     public DefaultMenuModel getModelEasy(LeftMenuEJB ejb) {
         DefaultMenuModel model = new DefaultMenuModel();//инициализация модели меню
-        
+
         List<LeftmenuEasy> listKor = ejb.selectKorenElement();
         for (LeftmenuEasy leftmenuKoren : listKor) { //All element
 
             if (leftmenuKoren.getIsGruop()) { // проверка на группу 
-                
+
                 List<LeftmenuEasy> listGrup = ejb.selectGroup(leftmenuKoren.getId());//заполнение групп
                 for (LeftmenuEasy leftmenuGrup : listGrup) {// заполнение групповых листов  SubMenu
                     DefaultSubMenu GrupSubmenu = new DefaultSubMenu(leftmenuGrup.getNameMenu());
@@ -46,8 +64,12 @@ public class LeftMenuModel {
                     List<LeftmenuEasy> listList = ejb.selectList(leftmenuGrup.getId());
                     for (LeftmenuEasy leftmenuEasyRow : listList) {// item
                         DefaultMenuItem item = new DefaultMenuItem(leftmenuEasyRow.getNameMenu());
-                        item.setUrl("http://www.primefaces.org");
-                      //  item.setIcon("ui-icon-home");
+                        item.setId(String.valueOf(leftmenuEasyRow.getId()));
+                        //    item.setCommand("#{tovarCDI.selectTovar(" + leftmenuEasyRow.getId() + ")}");
+                        item.setCommand("#{tovarCDI.selectTovar}");
+                        //    System.out.println("#{tovarCDI.selectTovar(" + leftmenuEasyRow.getId() + ")}");
+                        item.setUpdate("tovar1");
+                        //  item.setIcon("ui-icon-home");
                         GrupSubmenu.addElement(item);
                     }
                     model.addElement(GrupSubmenu);
@@ -55,11 +77,15 @@ public class LeftMenuModel {
             } else {// заполнение корневых листов
                 //   List<LeftmenuEasy> listGrup = ejb.selectList(0); //
                 DefaultMenuItem item = new DefaultMenuItem(leftmenuKoren.getNameMenu());
-                item.setUrl("http://www.primefaces.org");
+                item.setId("0");
+                // item.setCommand("#{tovarCDI.selectTovar(" + leftmenuKoren.getId() + ")}");
+                item.setCommand("#{tovarCDI.selectTovar}");
+                item.setUpdate("tovar1");
+
                 //item.setIcon("ui-icon-home");
                 model.addElement(item);
                 //     leftmenuKoren   // item koren
-                
+
             }
         }
 

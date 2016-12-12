@@ -2,23 +2,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <p:layout style="min-width:400px;min-height:500px;">
-            <p:layoutUnit position="west" resizable="true" size="210" minSize="100" maxSize="300" >
-                <h:panelGrid columns="1">  
-                    <h3>Test Menu</h3>
-                    <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 171px;" />
-                </h:panelGrid>
-            </p:layoutUnit>
+        <h:form id="form1">
+            <p:layout id="content1" style="min-width:400px;min-height:500px;">
+                <p:layoutUnit id="west1" position="west" resizable="true" size="210" minSize="100" maxSize="300" >
+                    <h:panelGrid columns="1">  
+                        <h3>Test Menu</h3>
 
-            <p:layoutUnit position="center">
-                Center
-            </p:layoutUnit>
-        </p:layout>
+                       
+
+                    </h:panelGrid>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" id="center1">
+                    Center
+                    <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 171px;"  />
+                    <p:dataGrid id="tovar1" var="tov" value="#{tovarCDI.listTovar}" columns="3" layout="grid"
+                                rows="12" paginator="true" 
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                rowsPerPageTemplate="6,12,16">
+                        <p:panel id="content2" header="#{tov.id}" style="text-align:center">
+                            <h:panelGrid  columns="1" style="width:100%">
+
+
+                                <h:outputText value="#{tov.nametovar}" />
+                                <h:outputText value="#{tov.cenatovar}" />
+
+                                <p:commandLink update="tovar1"  title="View Detail">
+                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" value="batton" />
+                                    <f:setPropertyActionListener value="#{tov}" target="#{tovarCDI.selectedTovar}" />
+                                </p:commandLink>
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:dataGrid>
+                </p:layoutUnit>
+            </p:layout>
+        </h:form>
     </h:body>
 </html>
 
