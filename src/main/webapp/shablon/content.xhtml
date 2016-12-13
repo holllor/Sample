@@ -12,21 +12,19 @@
             <p:layout id="content1" style="min-width:400px;min-height:500px;">
                 <p:layoutUnit id="west1" position="west" resizable="true" size="210" minSize="100" maxSize="300" >
                     <h:panelGrid columns="1">  
-                        <h3>Test Menu</h3>
 
-                       
+                        <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 171px;"  />
+
 
                     </h:panelGrid>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center" id="center1">
-                    Center
-                    <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 171px;"  />
                     <p:dataGrid id="tovar1" var="tov" value="#{tovarCDI.listTovar}" columns="3" layout="grid"
-                                rows="12" paginator="true" 
+                                rows="12" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" 
                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16">
-                        <p:panel id="content2" header="#{tov.id}" style="text-align:center">
+                        <p:panel id="content2" style="text-align:center" footer="footer">
                             <h:panelGrid  columns="1" style="width:100%">
 
 

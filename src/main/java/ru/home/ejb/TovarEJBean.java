@@ -33,7 +33,7 @@ public class TovarEJBean {
         String sql = "select * from tovar where leftmenueasy_id = ? ";
         
         Query qer = em.createNativeQuery(sql, Tovar.class).setParameter(1, id);
-        System.out.println(sql);
+      //  System.out.println(sql);
         return qer.getResultList();
     }
 }
