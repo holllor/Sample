@@ -39,14 +39,14 @@ public class LeftMenuCDI implements Serializable {
     }
 
     public MenuModel getModel() {
-//        try {
-//            model = new LeftMenuModel().getModelEasy(leftEjb);
-//        } catch (Exception e) {
-//            System.out.println("ERROR ");
-//            e.printStackTrace();
-//        }
-        model = new LeftMenuModel().getModelEasy2();
-        return model;
+        try {
+            model = new LeftMenuModel().getModelEasy(leftEjb);
+        } catch (Exception e) {
+            System.out.println("ERROR ");
+            e.printStackTrace();
+        }
+      //  model = new LeftMenuModel().getModelEasy2();
+         return model;
     }
 
 }

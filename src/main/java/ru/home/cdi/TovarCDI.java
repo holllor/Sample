@@ -40,6 +40,7 @@ public class TovarCDI implements Serializable{
     @PostConstruct
     public void init() {
       listTovar = new ArrayList<>(); // начальная инициализация пока еще нет выбранных значений
+       listTovar = TovarEjb.selectTovarForGroup(12);// загрузка по умолчанию на чальной странице
     }
     public void selectTovar(){
         String id ="13";

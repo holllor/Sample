@@ -37,51 +37,60 @@ public class LeftMenuModel {
         item.setId("0");
         item.setCommand("#{tovarCDI.selectTovar}");
         item.setUpdate("tovar1");
-        
+
         DefaultMenuItem item2 = new DefaultMenuItem("two");
         item2.setId("1");
         item2.setCommand("#{tovarCDI.selectTovar2('12')}");
         item2.setUpdate("tovar1");
-        
-        model.addElement(item); 
+
+        model.addElement(item);
         model.addElement(item2);
-        
+
         return model;
     }
 
     public DefaultMenuModel getModelEasy(LeftMenuEJB ejb) {
         DefaultMenuModel model = new DefaultMenuModel();//инициализация модели меню
-
+int idMenu = 0;
         List<LeftmenuEasy> listKor = ejb.selectKorenElement();
+       
         for (LeftmenuEasy leftmenuKoren : listKor) { //All element
-
+ 
             if (leftmenuKoren.getIsGruop()) { // проверка на группу 
 
                 List<LeftmenuEasy> listGrup = ejb.selectGroup(leftmenuKoren.getId());//заполнение групп
                 for (LeftmenuEasy leftmenuGrup : listGrup) {// заполнение групповых листов  SubMenu
                     DefaultSubMenu GrupSubmenu = new DefaultSubMenu(leftmenuGrup.getNameMenu());
-                    
+
                     List<LeftmenuEasy> listList = ejb.selectList(leftmenuGrup.getId());
                     for (LeftmenuEasy leftmenuEasyRow : listList) {// item
+                        System.out.println("grup " + leftmenuEasyRow.getNameMenu() + " " + idMenu + " " + leftmenuEasyRow.getId().toString() + " ");
                         DefaultMenuItem item = new DefaultMenuItem(leftmenuEasyRow.getNameMenu());
-                        item.setId(String.valueOf(leftmenuEasyRow.getId()));
-                        //    item.setCommand("#{tovarCDI.selectTovar(" + leftmenuEasyRow.getId() + ")}");
-                        item.setCommand("#{tovarCDI.selectTovar}");
-                        //    System.out.println("#{tovarCDI.selectTovar(" + leftmenuEasyRow.getId() + ")}");
+                        //item.setId(String.valueOf(leftmenuEasyRow.getId()));
+                        item.setId(String.valueOf(idMenu));
+                        item.setCommand("#{tovarCDI.selectTovar2('" + leftmenuEasyRow.getId().toString() + "')}");
                         item.setUpdate("tovar1");
+                         item.setAjax(false);
                         //  item.setIcon("ui-icon-home");
                         GrupSubmenu.addElement(item);
+                        idMenu += 1;
+                    }
+                    if(listList.size()>1){
+                        idMenu += 1;
                     }
                     model.addElement(GrupSubmenu);
                 }
             } else {// заполнение корневых листов
-                //   List<LeftmenuEasy> listGrup = ejb.selectList(0); //
+                
+//   List<LeftmenuEasy> listGrup = ejb.selectList(0); //
+              //  System.out.println("list " + leftmenuKoren.getNameMenu() + " " + idMenu + " " + leftmenuKoren.getId().toString() + " ");
                 DefaultMenuItem item = new DefaultMenuItem(leftmenuKoren.getNameMenu());
-                item.setId("0");
-                // item.setCommand("#{tovarCDI.selectTovar(" + leftmenuKoren.getId() + ")}");
-                item.setCommand("#{tovarCDI.selectTovar}");
+                //item.setId(String.valueOf(leftmenuEasyRow.getId()));
+                item.setId(String.valueOf(idMenu));
+                item.setCommand("#{tovarCDI.selectTovar2('" + leftmenuKoren.getId().toString() + "')}");
                 item.setUpdate("tovar1");
-
+                item.setAjax(true);
+                idMenu += 1;
                 //item.setIcon("ui-icon-home");
                 model.addElement(item);
                 //     leftmenuKoren   // item koren
@@ -123,12 +132,12 @@ public class LeftMenuModel {
 ////        model.addElement(secondSubmenu);
         return model;
     }
-    
+
     private void testMenu() {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
-            
+
         }
         String sql = "select * from \"leftmenuEasy\" where parent_id = 0";
         try {
@@ -138,18 +147,18 @@ public class LeftMenuModel {
             Statement st = connection.createStatement();
             ResultSet rs = st.executeQuery(sql);
             ResultSetMetaData rsmt = rs.getMetaData();
-            
+
             while (rs.next()) {
                 int i1 = rs.getInt("id");
                 System.out.println(i1);
             }
         } catch (SQLException e) {
-            
+
             System.out.println("Connection Failed! Check output console");
             e.printStackTrace();
             return;
-            
+
         }
-        
+
     }
 }
