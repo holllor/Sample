@@ -3,44 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form id="form1">
-            <p:layout id="content1"  >
-                <p:layoutUnit id="west1" position="west" resizable="false" size="210" minSize="100" maxSize="300"  >
-                  
-
-                    <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 170px;margin-left: 10px;"  />
-
-                  
-                   
-                </p:layoutUnit>
-
-                <p:layoutUnit position="center" id="center1" resizable="false" >
-                    <p:dataGrid id="tovar1" var="tov" value="#{tovarCDI.listTovar}" columns="3" layout="grid"
-                                rows="12" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" 
-                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                rowsPerPageTemplate="6,12,16" >
-                        <p:panel id="content2" style="text-align:center" footer="footer" >
-                            <h:panelGrid  columns="1" style="width:100%">
+       
+            <h:form id="form1">
+                <p:layout id="content1"  >
+                    <p:layoutUnit id="west1" position="west" resizable="false" size="210" minSize="100" maxSize="300"  >
 
 
-                                <h:outputText value="#{tov.nametovar}" />
-                                <h:outputText value="#{tov.cenatovar}" />
+                        <p:menu model="#{leftMenuCDI.model}" toggleable="true" style="width: 170px;margin-left: 10px;"  />
 
-                                <p:commandLink update="tovar1"  title="View Detail">
-                                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" value="batton" />
-                                    <f:setPropertyActionListener value="#{tov}" target="#{tovarCDI.selectedTovar}" />
-                                </p:commandLink>
-                            </h:panelGrid>
-                        </p:panel>
-                    </p:dataGrid>
-                </p:layoutUnit>
-            </p:layout>
-        </h:form>
+
+
+                    </p:layoutUnit>
+
+                    <p:layoutUnit position="center" id="center1" resizable="false" >
+                        <p:dataGrid id="tovar1" var="tov" value="#{tovarCDI.listTovar}" columns="3" layout="grid"
+                                    rows="12" paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom" 
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                    rowsPerPageTemplate="6,12,16" >
+                            <p:panel id="content2" style="text-align:center" footer="footer" >
+                                <h:panelGrid  columns="1" style="width:100%">
+
+
+                                    <h:outputText value="#{tov.nametovar}" />
+                                    <h:outputText value="#{tov.cenatovar}" />
+
+                                    <p:commandLink update="tovar1"  title="View Detail" action="#{tovarCDI.opisanie()}">
+                                        <h:outputText  style="margin:0 auto;" value="подробнее"  />
+                                        <f:setPropertyActionListener value="#{tov}" target="#{tovarCDI.selectedTovar}"  />
+                                    </p:commandLink>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:dataGrid>
+                    </p:layoutUnit>
+                </p:layout>
+            </h:form>
+      
     </h:body>
 </html>
 
