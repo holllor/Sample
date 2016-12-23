@@ -10,8 +10,13 @@
     <h:body>
         <ui:composition template="../testTemplate.xhtml">
             <ui:define name="content" >
-                Hello from Facelets <p:outputLabel value="#{tovarCDI.selectedTovar}" />
-                 <h:link outcome="testTemplate" value="обратно" />
+                <div class="testCenter">
+                     Здесь будет подробное описание товара с фото<br/>
+                     <p:outputLabel value="#{tovarCDI.selectedTovar}" /><br/>
+                     <h:link outcome="testTemplate" value="обратно" />
+                </div>
+               
+                 
             </ui:define>
         </ui:composition>
     </h:body>
