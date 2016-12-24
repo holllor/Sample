@@ -48,12 +48,18 @@ public class TovarCDI implements Serializable{
        listTovar = TovarEjb.selectTovarForGroup(id2);
         System.out.println("select 1 ");
     }
+    
+    
      public void selectTovar2(String id){
        
        int id2 = Integer.parseInt(id);
         listTovar = TovarEjb.selectTovarForGroup(id2);
     }
-
+public String opisanie(){
+    System.out.println("select "+selectedTovar);
+    return "opisanie";
+}
+     
     public List<Tovar> getListTovar() {
         return listTovar;
     }
