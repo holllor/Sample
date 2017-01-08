@@ -122,6 +122,55 @@ public class LeftMenuModel implements Serializable {
         model.generateUniqueIds();// после добавление всех пунктов и групп, генерирует уникальные номера. Это решает проблему их самостоятельной генерации!!
         return model;
     }
+private  List<LeftmenuEasy> recurse(List<LeftmenuEasy> rec){
+    
+    return null;
+}
+   
+    public DefaultMenuModel getModelEasy3(LeftMenuEJB ejb) {
+        DefaultMenuModel model = new DefaultMenuModel();//инициализация модели меню
+
+        List<LeftmenuEasy> listKor = ejb.selectKorenElement();
+      
+       for (LeftmenuEasy leftmenuKoren : listKor) { //All element
+
+            if (leftmenuKoren.getIsGruop()) { // проверка на группу 
+                //    System.out.println("grup " + idMenu);
+//                List<LeftmenuEasy> listGrup = ejb.selectGroup(leftmenuKoren.getId());//заполнение групп
+//                for (LeftmenuEasy leftmenuGrup : listGrup) {// заполнение групповых листов  SubMenu
+                    DefaultSubMenu GrupSubmenu = new DefaultSubMenu(leftmenuKoren.getNameMenu());
+                    //if(){}
+                    List<LeftmenuEasy> listList = ejb.selectList(leftmenuKoren.getId());
+                    for (LeftmenuEasy leftmenuEasyRow : listList) {// item
+                        // System.out.println("grup " + leftmenuEasyRow.getNameMenu() + " " + idMenu + " " + leftmenuEasyRow.getId().toString() + " ");
+                        DefaultMenuItem item = new DefaultMenuItem(leftmenuEasyRow.getNameMenu());
+
+                        item.setCommand("#{tovarCDI.selectTovar2('" + leftmenuEasyRow.getId().toString() + "')}");
+                        item.setUpdate("tovar1");
+                        item.setAjax(true);
+
+                        GrupSubmenu.addElement(item);
+
+                    }
+                    model.addElement(GrupSubmenu);
+//                }
+
+            } else {// заполнение корневых листов
+
+                DefaultMenuItem item = new DefaultMenuItem(leftmenuKoren.getNameMenu());
+
+                item.setCommand("#{tovarCDI.selectTovar2('" + leftmenuKoren.getId().toString() + "')}");
+                item.setUpdate("tovar1");
+                item.setAjax(true);
+
+                model.addElement(item);
+
+            }
+        }
+// после всех добавлений ОБЯЗАТЕЛЬНЫЙ вызов этого метода!!!
+        model.generateUniqueIds();// после добавление всех пунктов и групп, генерирует уникальные номера. Это решает проблему их самостоятельной генерации!!
+        return model;
+    }
 
     private void testMenu() {
         try {

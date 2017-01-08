@@ -34,13 +34,13 @@ public class LeftMenuCDI implements Serializable {
     //метод отрабатывает при загрузке CDI Bean
     @PostConstruct
     public void init() {
-        model = new LeftMenuModel().getModelEasy(leftEjb);// загружает модель данных меню
+        model = new LeftMenuModel().getModelEasy3(leftEjb);// загружает модель данных меню
 
     }
 
     public MenuModel getModel() {
         try {
-            model = new LeftMenuModel().getModelEasy(leftEjb);
+            model = new LeftMenuModel().getModelEasy3(leftEjb);
         } catch (Exception e) {
             System.out.println("ERROR ");
             e.printStackTrace();
