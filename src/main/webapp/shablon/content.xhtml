@@ -29,11 +29,10 @@
                             <p:panel id="content2" style="text-align:center" footer="footer" >
                                 <h:panelGrid  columns="1" style="width:100%">
 
-
                                     <h:outputText value="#{tov.nametovar}" />
                                     <h:outputText value="#{tov.cenatovar}" />
 
-                                    <p:commandLink update="tovar1"  title="View Detail" action="#{tovarCDI.opisanie()}">
+                                    <p:commandLink update="tovar1"  title="View Detail" action="#{tovarCDI.opisanie()}" ajax="false">
                                         <h:outputText  style="margin:0 auto;" value="подробнее"  />
                                         <f:setPropertyActionListener value="#{tov}" target="#{tovarCDI.selectedTovar}"  />
                                     </p:commandLink>
