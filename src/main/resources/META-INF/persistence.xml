@@ -10,4 +10,11 @@
     <shared-cache-mode>NONE</shared-cache-mode>
     <properties/>
   </persistence-unit>
+  <persistence-unit name="ru.home.hibernate" transaction-type="JTA">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>java:app/samplePG</jta-data-source>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <properties/>
+  </persistence-unit>
 </persistence>
