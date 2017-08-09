@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.ViewExpiredException;
 
 import javax.inject.Named;
 import ru.home.ejb.TovarEJBean;
@@ -55,7 +56,7 @@ public class TovarCDI implements Serializable{
        int id2 = Integer.parseInt(id);
         listTovar = TovarEjb.selectTovarForGroup(id2);
     }
-public String opisanie(){
+public String opisanie() throws ViewExpiredException{
     System.out.println("select "+selectedTovar);
     return "opisanie";
 }
