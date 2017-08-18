@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ru.home.test;
 
 import java.io.Serializable;
@@ -18,6 +17,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class TestEntity implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,5 +55,5 @@ public class TestEntity implements Serializable {
     public String toString() {
         return "ru.home.test.TestEntity[ id=" + id + " ]";
     }
-    
+
 }

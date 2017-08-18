@@ -14,18 +14,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.primefaces.themes/all-themes -->
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
-        </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
             <version>2.5.2</version>
             <scope>provided</scope>
         </dependency>
+       
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
@@ -53,11 +48,7 @@
             <artifactId>org.eclipse.persistence.jpa</artifactId>
             <version>2.6.2</version>
         </dependency>
-        <dependency>  
-            <groupId>org.primefaces</groupId>  
-            <artifactId>primefaces</artifactId>  
-            <version>6.0</version>  
-        </dependency> 
+       
 
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
@@ -85,6 +76,13 @@
             <version>5.2.8.Final</version>
         </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+<dependency>
+    <groupId>org.primefaces</groupId>
+    <artifactId>primefaces</artifactId>
+    <version>6.1</version>
+</dependency>
+
 
     </dependencies>
 
@@ -97,6 +95,8 @@
             <name>Java.net Maven2 Repository</name> 
             <url>http://download.java.net/maven/2</url> 
         </pluginRepository>
+ 	
+
     </pluginRepositories> 
  
     <build>
@@ -154,6 +154,7 @@
         </plugins>
     </build>
     <repositories>
+       
         <repository>
             <url>http://repository.primefaces.org/</url>
             <id>PrimeFaces-maven-lib</id>
@@ -165,6 +166,8 @@
             <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
             <url>file:${project.basedir}/lib</url>
         </repository>
+       
+       
     </repositories>
 
 </project>

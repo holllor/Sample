@@ -5,7 +5,6 @@
  */
 package ru.home.cdi;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,41 +25,42 @@ import ru.home.sample.LeftMenuModel;
  */
 @Named(value = "tovarCDI")
 @SessionScoped
-public class TovarCDI implements Serializable{
+public class TovarCDI implements Serializable {
 
     private List<Tovar> listTovar;
     private Tovar selectedTovar;
-    
+
     public TovarCDI() {
     }
-    
+
     @EJB
     TovarEJBean TovarEjb;
 
     //метод отрабатывает при загрузке CDI Bean
     @PostConstruct
     public void init() {
-      listTovar = new ArrayList<>(); // начальная инициализация пока еще нет выбранных значений
-       listTovar = TovarEjb.selectTovarForGroup(12);// загрузка по умолчанию на чальной странице
+        listTovar = new ArrayList<>(); // начальная инициализация пока еще нет выбранных значений
+        listTovar = TovarEjb.selectTovarForGroup(12);// загрузка по умолчанию на чальной странице
     }
-    public void selectTovar(){
-        String id ="13";
-       int id2 = Integer.parseInt(id);
-       listTovar = TovarEjb.selectTovarForGroup(id2);
+
+    public void selectTovar() {
+        String id = "13";
+        int id2 = Integer.parseInt(id);
+        listTovar = TovarEjb.selectTovarForGroup(id2);
         System.out.println("select 1 ");
     }
-    
-    
-     public void selectTovar2(String id){
-       
-       int id2 = Integer.parseInt(id);
+
+    public void selectTovar2(String id) {
+
+        int id2 = Integer.parseInt(id);
         listTovar = TovarEjb.selectTovarForGroup(id2);
     }
-public String opisanie() throws ViewExpiredException{
-    System.out.println("select "+selectedTovar);
-    return "opisanie";
-}
-     
+
+    public String opisanie() throws ViewExpiredException {
+        System.out.println("select " + selectedTovar);
+        return "opisanie";
+    }
+
     public List<Tovar> getListTovar() {
         return listTovar;
     }
@@ -78,6 +78,4 @@ public String opisanie() throws ViewExpiredException{
         this.selectedTovar = selectedTovar;
     }
 
-    
-    
 }

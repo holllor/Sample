@@ -22,5 +22,5 @@ public class TestJSFManagedBean implements Serializable {
      */
     public TestJSFManagedBean() {
     }
-    
+
 }

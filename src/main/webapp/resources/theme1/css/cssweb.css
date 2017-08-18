@@ -45,7 +45,7 @@ body {
     padding-top: 8px;
     border-radius: 5px;
     height: 800px;
-     font-family: Arial;
+    font-family: Arial;
 }
 .all2 {
     margin: 0 10% 0 10%; 
@@ -55,7 +55,7 @@ body {
     padding-left: 8px;
     padding-bottom: 8px;
     padding-top: 9px;
-     font-family: Arial;
+    font-family: Arial;
 }
 .test{
 
@@ -95,8 +95,8 @@ body {
     float: left;
     margin: 5px;
     padding: 5px;
-    
-  
+
+
 }
 .center{
     width: 70%;
@@ -106,21 +106,21 @@ body {
 }
 .vertical{
     vertical-align: top;
-   
+
     min-width: 634px;
-    
+
 }
 .topMenu{
     vertical-align: middle;
     border-radius: 5px;
     background-color: #FFF;
     padding: 10px;
-    
+
     font-size: 16px;
 }
 .oneLineMenu{
     vertical-align: middle;margin: 10px;
-    
+
 }
 .oneLineMenu2{
     vertical-align: middle;
@@ -141,10 +141,10 @@ body {
     font-size: 16px;
 } 
 .tab3{
-     background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 .view   td  {
-   
+
     text-align: left;
     padding-left: 10px;
     padding-top: 5px;
@@ -154,7 +154,7 @@ body {
     font-size: 22px;
     border: 1px solid black;
 
-   
+
 }
 .view tbody td{
     max-width: 400px;
@@ -166,9 +166,9 @@ body {
     border-collapse: collapse;
 }
 .login{
-      width: 180px;
-     
-      float: left;
+    width: 180px;
+
+    float: left;
 }
 .leftMenu{
     margin: 15px;
@@ -180,49 +180,49 @@ body {
     overflow: hidden;
     float: left;
     height: 380px;
-  alignment-baseline: central;
+    alignment-baseline: central;
 }
 .leftMenu p{
     font-size: 18px;
-   font-weight: 500;
-   margin-top:  5px;
-   border-bottom:4px double #f0f0f0;
-   
+    font-weight: 500;
+    margin-top:  5px;
+    border-bottom:4px double #f0f0f0;
+
 }
 .loginHeader{
- 
-  padding-bottom: 9px;
+
+    padding-bottom: 9px;
     border-radius: 5px;
     background-color: #FFF;
-  width: 270px;
-   right: 0;
-   float: right;
-   overflow: hidden;
-   height: 15px;
-  
-   margin-right: 20px;
+    width: 270px;
+    right: 0;
+    float: right;
+    overflow: hidden;
+    height: 15px;
+
+    margin-right: 20px;
 }
 .loginHeader a{
     padding-left: 10px;
 }
 .horizonMenuTop{
-  /*// margin-top: 5px;*/
+    /*// margin-top: 5px;*/
     height: 20px;
     border-radius: 5px;
     background-color: #FFF;
     margin-left: 15px;
-     margin-right:  320px;
+    margin-right:  320px;
     padding-top: 3px;
-   /*// padding-left: 3px;*/
-     font-size: 10px;
+    /*// padding-left: 3px;*/
+    font-size: 10px;
     /*// text-align: center;*/
-    
+
 }
 .loginCentre{
     padding-top: 25%;
     padding-left: 33%;
-   
-     float: left;  
+
+    float: left;  
 }
 .loginCentre a{
     font-family: arial;
@@ -231,11 +231,11 @@ body {
 .errorCentre{
     padding-top: 20%;
     padding-left: 33%;
-  
+
     float: left;  
 }
 .errorCentre p{
-     background-color: #FFF;
+    background-color: #FFF;
     border-radius: 5px;
     padding: 20px;
     font-family: arial;
@@ -252,34 +252,34 @@ body {
 }
 .horizonMenu p{
     padding-top: 15px;
-  padding-left: 10px;
- 
+    padding-left: 10px;
+
 }
 .source{
-  
+
     max-width: 83%;
-  
+
     background-color: #FFF;
     border-radius: 5px;
     margin-left: 260px;
-   /*// margin-right: 5px;*/
+    /*// margin-right: 5px;*/
     margin-right: 1%;
     margin-top: 15px;
     height: 50%
 }
 .column1{
-   width: 30px;   
-   vertical-align: top;
+    width: 30px;   
+    vertical-align: top;
 }
 .column2{
-   width: 700px; 
-   /*//height: 150px;*/
-   font-size: small;
+    width: 700px; 
+    /*//height: 150px;*/
+    font-size: small;
 }
 .column3{
-    
+
 }
 .myspisDiv{
- /*background-color: gainsboro;*/
+    /*background-color: gainsboro;*/
     border-radius: 20px;
 }

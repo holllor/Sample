@@ -45,7 +45,7 @@ public class Tovar implements Serializable {
     @JoinColumn(name = "leftmenu_id", referencedColumnName = "id")
     @ManyToOne
     private Leftmenu leftmenuId;
-     @JoinColumn(name = "leftmenueasy_id", referencedColumnName = "id")
+    @JoinColumn(name = "leftmenueasy_id", referencedColumnName = "id")
     @ManyToOne
     private Leftmenu leftmenueasyId;
 
@@ -120,5 +120,5 @@ public class Tovar implements Serializable {
     public String toString() {
         return "ru.home.entity.Tovar[ id=" + id + " ]";
     }
-    
+
 }

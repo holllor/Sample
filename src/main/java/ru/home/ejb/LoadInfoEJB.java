@@ -21,12 +21,13 @@ public class LoadInfoEJB {
 
     @PersistenceContext(unitName = "samplePG")
     private EntityManager em;
-    
+
     /**
      * выбор всего товара из базы
+     *
      * @return лист
      */
-    public List<Tovar> selectAllTovar(){
+    public List<Tovar> selectAllTovar() {
         String sql = "select * from tovar t ";
         Query qer = em.createNativeQuery(sql, Tovar.class);
         return qer.getResultList();

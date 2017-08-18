@@ -46,7 +46,7 @@ public class LinkPhotoTotovar implements Serializable {
     @NotNull
     @Column(name = "glavnoePhoto")
     private boolean glavnoePhoto;
-      @JoinColumn(name = "tovar_id", referencedColumnName = "id")
+    @JoinColumn(name = "tovar_id", referencedColumnName = "id")
     @ManyToOne
     private Tovar tovarId;
 
@@ -126,5 +126,5 @@ public class LinkPhotoTotovar implements Serializable {
     public String toString() {
         return "ru.home.entity.LinkPhotoTotovar[ id=" + id + " ]";
     }
-    
+
 }

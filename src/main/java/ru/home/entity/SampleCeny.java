@@ -95,5 +95,5 @@ public class SampleCeny implements Serializable {
     public String toString() {
         return "ru.home.entity.SampleCeny[ id=" + id + " ]";
     }
-    
+
 }

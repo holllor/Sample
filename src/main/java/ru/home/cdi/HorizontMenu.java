@@ -15,12 +15,12 @@ import javax.inject.Named;
  */
 @Named(value = "horizontMenu")
 @SessionScoped
-public class HorizontMenu  implements Serializable{
+public class HorizontMenu implements Serializable {
 
     public HorizontMenu() {
     }
-    
-    public String loadInfo(){
+
+    public String loadInfo() {
         System.out.println("load info");
         return "loadInfo";
     }

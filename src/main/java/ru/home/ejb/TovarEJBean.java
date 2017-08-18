@@ -23,17 +23,18 @@ public class TovarEJBean {
     @PersistenceContext(unitName = "samplePG")
     private EntityManager em;
 
-   /**
-    * выбирает товар привязанный к пункту или группе меню
-    * @param id
-    * @return  список товаров
-    */
+    /**
+     * выбирает товар привязанный к пункту или группе меню
+     *
+     * @param id
+     * @return список товаров
+     */
     public List<Tovar> selectTovarForGroup(int id) {
 
         String sql = "select * from tovar where leftmenueasy_id = ? ";
-        
+
         Query qer = em.createNativeQuery(sql, Tovar.class).setParameter(1, id);
-      //  System.out.println(sql);
+        //  System.out.println(sql);
         return qer.getResultList();
     }
 }

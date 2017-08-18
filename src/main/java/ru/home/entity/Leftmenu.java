@@ -117,5 +117,5 @@ public class Leftmenu implements Serializable {
     public String toString() {
         return "ru.home.entity.Leftmenu[ id=" + id + " ]";
     }
-    
+
 }

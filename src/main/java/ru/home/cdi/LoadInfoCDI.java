@@ -33,10 +33,7 @@ public class LoadInfoCDI implements Serializable {
 
     }
 
-    
-    
     // getter and setter
-
     public List<Tovar> getListTovar() {
         return listTovar;
     }
@@ -44,5 +41,5 @@ public class LoadInfoCDI implements Serializable {
     public void setListTovar(List<Tovar> listTovar) {
         this.listTovar = listTovar;
     }
-    
+
 }
