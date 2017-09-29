@@ -14,11 +14,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
-    <connection>scm:svn:http://127.0.0.1/dummy</connection>
-    <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
-    <tag>HEAD</tag>
-    <url>http://127.0.0.1/dummy</url>
-  </scm>
+        <connection>scm:svn:http://127.0.0.1/dummy</connection>
+        <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://127.0.0.1/dummy</url>
+    </scm>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
@@ -161,28 +161,26 @@
             </plugin>
             
             <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-           <revisionOnScmFailure>true</revisionOnScmFailure>
-           <format>{0,number}</format>
-           <items>
-              <item>buildNumber</item>
-           </items>
-           <buildNumberPropertiesFileLocation>META-INF</buildNumberPropertiesFileLocation>
-           <buildNumberPropertyName>application.properties</buildNumberPropertyName>
-           
-        </configuration>
-      </plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <revisionOnScmFailure>true</revisionOnScmFailure>
+                    <format>{0,number}</format>
+                    <items>
+                        <item>buildNumber</item>
+                    </items>
+                              
+                </configuration>
+            </plugin>
             
         </plugins>
     </build>
